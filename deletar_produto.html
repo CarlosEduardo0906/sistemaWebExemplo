@@ -4,16 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deletar produto</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h2>Deletar produto</h2>
-    <form method="post" action="deletar.php">
-    <p>ID do produto a ser deletado:</p>
-    <p><input type="text" name="id"><br></p>
-    <p><input type="submit" value="Excluir produto"></p>
 
-    </form>
+    <header>
+     
+        
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <div class="container"> 
+            <a class="navbar-brand" href="index.html">Ficr Modas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="cadastrar_produto.html">Cadastrar produto <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="consultar_produto.html">Consultar ou atualizar produto</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="deletar_produto.html">Deletar produto</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0"> <!-- Adicionando classes de margem para ajustar a posição -->
+                <input class="form-control mr-sm-2" type="text" placeholder="Pesquisa" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+              </form>
+              <button class="btn btn-outline-light ml-auto">Login</button> <!-- Botão de login fictício alinhado à direita -->
+            </div>
+          </div>
+        </nav>
+      </header>
 
+    <div class="container mt-5">
+        <h2>Deletar produto</h2>
+        <form method="post" action="deletar.php" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="id">ID do produto a ser deletado:</label>
+                <input type="text" class="form-control" id="id" name="id" required>
+                <div class="invalid-feedback">
+                    Por favor, forneça o ID do produto.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger">Excluir produto</button>
+        </form>
+    </div>
+
+   
+<div class="container">
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
+      Adicionar algum comentário
+    </button>
+    
+    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Comentário:</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Comentário enviado com sucesso!!!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Salvar mudanças</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Contatos</h4>
+                    <p>Email: ficrmodas@gmail.com</p>
+                    <p>Telefone: (81) 98437-5866</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Ajuda</h4>
+                    <p>FAQ</p>
+                    <p>Suporte</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Serviços</h4>
+                    <p>Assistência Personalizada</p>
+                    <p>Ajustes e Customizações</p>
+                    <p>Entrega Conveniente</p>
+                    <p>Eventos Exclusivos</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <p>Siga-nos nas redes sociais:</p>
+                <i class="fab fa-facebook-f text-white mx-2"></i>
+                <i class="fab fa-twitter text-white mx-2"></i>
+                <i class="fab fa-instagram text-white mx-2"></i>
+                <i class="fab fa-linkedin-in text-white mx-2"></i>
+            </div>
+        </div>
+    </footer>
+      
+     
+    </div>
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        // Adiciona validação do Bootstrap
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Validação Bootstrap
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+
+    <script>
+    $("#modal").modal("show")
+    </script>
 
 </body>
 </html>

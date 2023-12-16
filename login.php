@@ -83,7 +83,7 @@
                     session_start();
                     $_SESSION["email"] = $emailSQL;
                     $_SESSION["senha"] = $senhaSQL;
-                    header("Location: ficrmodas.php");
+                    header("Location: ficrmodas2.html");
                 } else {
                     echo '<!DOCTYPE html>
                     <html lang="pt-br">
